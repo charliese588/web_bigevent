@@ -29,11 +29,10 @@ function getUserInfo() {
     $.ajax({
         url: '/my/userinfo',
         type: 'GET',
-        // headers: {
-        //     Authorization: localStorage.getItem('token') || ''
-        // },
         success: function (res) {
-            // console.log(res);
+            if (res.status !== 0) {
+                return layui.layer.msg('获取用户信息失败！');
+              }
             renderAvatar(res.data);
         }
     })

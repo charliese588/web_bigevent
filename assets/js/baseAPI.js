@@ -16,14 +16,14 @@ $.ajaxPrefilter(function (options) {
     }
 
     // 当请求结束后，判断用户的设置访问权限
-    options.complete = function (res) {
-        // 在 complete回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
-        if (res.responseJSON.status === 1 && res.responseJSON.message == '身份认证失败!') {
-            // 1. 强制清空本地存储的 token
-            localStorage.removeItem('token');
-            // 2. 强制跳转到登录页面
-            location.href = '/login.html';
+    options.complete = function(res) {
+        // 在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
+        if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
+          // 1. 强制清空 token
+          localStorage.removeItem('token')
+          // 2. 强制跳转到登录页面
+          location.href = '/login.html'
         }
-    }
+      }
 
 })
