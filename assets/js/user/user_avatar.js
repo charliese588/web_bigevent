@@ -21,7 +21,7 @@ $(function () {
     // 为文件选择框绑定 chage 事件
     $('#file').on('change', function (e) {
         const filelist = e.target.files;
-        if (filelist.length == 0) {
+        if (filelist.length === 0) {
             return layer.msg('请选择图片');
         }
 
